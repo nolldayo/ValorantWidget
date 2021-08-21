@@ -6,5 +6,5 @@ ValorantWidget
 [\[日本語版はこちら\]](README_JP.md)
 
 ## Coming soon...
-Sorry! :(
+Sorry! :(  
 I'm currently hard at write!

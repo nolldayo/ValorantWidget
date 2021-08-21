@@ -122,3 +122,7 @@ Twitch [YNZjp](https://www.twitch.tv/ynzjp)
 [ValorantStreamOverlay by RumbleMike](https://github.com/RumbleMike/ValorantStreamOverlay)  
 [Valorant App Developers](https://discord.gg/a9yzrw3KAm)  
 [Valorant Font by brylark](https://www.reddit.com/r/VALORANT/comments/g0747t/valorant_font/)  
+
+## Message to Riot
+If you want to say anything to this project, Please contact my twitter.  
+[@YNZjp](https://twitter.com/YNZjp)

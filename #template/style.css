@@ -1,0 +1,48 @@
+@font-face {
+	font-family: 'Valorant';
+	src: url('ValorantFont.ttf');
+}
+
+body {
+	font-family: Valorant;
+	overflow: hidden;
+}
+
+.square {
+	background: linear-gradient(125deg, rgba(250,68,84,0.5) 0%, rgba(250,68,84,0.5) 52%, rgba(54,73,102,0.5) 52%, rgba(54,73,102,0.5) 100%);
+	width: 57%;
+	height: 0;
+	padding-bottom: 23%;
+	overflow:hidden;
+}
+
+.square img{
+	width:57%;
+	hight: 0;
+	object-fit: contain;
+}
+
+.rank {
+	font-size: 44px;
+	padding-right: 10px;
+}
+
+.rr {
+	font-size: 34px;
+	padding-top: 10px;
+	padding-left: 80px;
+}
+
+.shade {
+	background: linear-gradient(-125deg, rgba(54,73,102,0.8) 0%, rgba(54,73,102,0.8) 55%, rgba(250,68,84,0.8) 55%, rgba(250,68,84,0.8) 100%);
+	padding: 10px 0px 10px 10px;
+	display: inline-block;
+}
+.mainbox {
+	display: inline-block;
+	float: right;
+}
+
+.mainbox img {
+	margin-top: 10px;
+}

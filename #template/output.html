@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Valorant Widget</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="mainbox">
+	<div class="shade">
+		<table>
+			<tr>
+				<td width="110"><img src="" width="160" height="160"></td>
+				<td class="info">
+					<div class="rank"><strong></strong></div>
+					<div class="rr"></div>
+				</td>
+			</tr>
+		</table></div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script>
+		setInterval(function() {
+			$.ajax({
+				url: '../VW/tmp/tier_text.txt',
+				dataType: 'text',
+				success: function(data) {
+					$('.rank').html(data);
+				}
+			});
+			$.ajax({
+				url: '../VW/tmp/rr.txt',
+				dataType: 'text',
+				success: function(data) {
+					$('.rr').html(data);
+				}
+			});
+			$.ajax({
+				url: '../VW/tmp/tier.txt',
+				dataType: 'text',
+				success: function(data) {
+					$('img').attr('src', 'https://ynz.noob.jp/VW/api/icon/' + data + '.png');
+					if (data >= 0 && data <= 2){
+						$(".rank").css("color","#ffffffff");
+						$(".rr").css("color","#ffffffff");
+					}else if (data >= 3 && data <= 5){
+						$(".rank").css("color","#4f514fff");
+						$(".rr").css("color","#4f514fff");
+					}else if (data >= 6 && data <= 8){
+						$(".rank").css("color","#a5855dff");
+						$(".rr").css("color","#a5855dff");
+					}else if (data >= 9 && data <= 11){
+						$(".rank").css("color","#ffffffff");
+						$(".rr").css("color","#ffffffff");
+					}else if (data >= 12 && data <= 14){
+						$(".rank").css("color","#eccf56ff");
+						$(".rr").css("color","#eccf56ff");
+					}else if (data >= 15 && data <= 17){
+						$(".rank").css("color","#59a9b6ff");
+						$(".rr").css("color","#59a9b6ff");
+					}else if (data >= 18 && data <= 20){
+						$(".rank").css("color","#b489c4ff");
+						$(".rr").css("color","#b489c4ff");
+					}else if (data >= 21 && data <= 23){
+						$(".rank").css("color","#880000");
+						$(".rr").css("color","#880000");
+					}else if (data == 24){
+						$(".rank").css("color","#ffffaaff");
+						$(".rr").css("color","#ffffaaff");
+					}
+				}
+			}, 2000);
+		});
+	</script>
+</body>
+</html>

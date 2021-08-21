@@ -1,6 +1,7 @@
 ValorantWidget
 ====
 "ValorantWidget" is widget shows current valorant rank and rank rating for streamers.
+![image](https://user-images.githubusercontent.com/25396805/130334416-94e153ce-b180-4772-991f-09e3033582aa.PNG)  
 
 ## 日本語
 [\[日本語版はこちら\]](README_JP.md)

@@ -48,7 +48,7 @@ XAMPPをインストールしたことにより、ツールの利用に必要な
 Githubの使い方が分からない方は、このページの緑色の「Code」をクリックすると、「Download ZIP」が出てくるのでそこをクリックしてZIPをダウンロードしてください。  
 ![dl](https://user-images.githubusercontent.com/25396805/130334720-2bf1e35b-ad70-4e83-821a-acfd0d65c2f6.PNG)  
 
-3.Valorant Widgetをセッティングする  
+**3.Valorant Widgetをセッティングする**  
 ダウンロードされたZIPを解凍すると、以下のようなフォルダが表示されます。  
 ![v1](https://user-images.githubusercontent.com/25396805/130334759-6bbce760-9d8e-45a0-b4af-c9bb0bb01864.PNG)  
 
@@ -66,7 +66,7 @@ Githubの使い方が分からない方は、このページの緑色の「Code�
 Valorant Widgetの設定は完了です！  
 お疲れさまでした！  
 
-**3.Valorant Widgetを起動する**  
+**4.Valorant Widgetを起動する**  
 フォルダの中にある、  
 「#ValorantWidget.bat」  
 を起動してください。正常に設定されていれば以下のような画面が表示されるので、最小化することが可能です。  
@@ -80,7 +80,7 @@ Valorant Widgetの設定は完了です！
 配信中は、**常に「#ValorantWidget.bat」が起動されている必要があります。**  
 30秒間隔で最新のランクTierとランクレーティングが確認され、アウトプット用データが更新されます。  
 
-**4.アウトプット用htmlファイルをOBSに設定する**  
+**5.アウトプット用htmlファイルをOBSに設定する**  
 (説明はStreamlabs OBSで行っています)  
 
 まずは、ソースの追加よりブラウザソースの追加を選択してください。  

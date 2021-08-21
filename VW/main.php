@@ -31,7 +31,7 @@ if ($auth == "login error"){
 
 echo "+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-\n";
 echo "Hello this is Valorant Widget!\n";
-echo "GLHF your great valorant day :)\n";
+echo "GLHF in your VALORANT games :)\n";
 echo "\n";
 echo "\n";
 echo "Twitter @YNZjp\n";

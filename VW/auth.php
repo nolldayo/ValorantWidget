@@ -5,6 +5,7 @@ class RA{
 	public $username;
 	public $password;
 	public $region;
+	public $season;
 	public $at;
 	public $et;
 	public $uid;
@@ -15,6 +16,7 @@ class RA{
 	public function __construct($username, $password, $region){
 		$this->username = $username;
 		$this->password = $password;
+		$this->season = $region;
 
 		//set base region
 		if ($region == "na"){ $this->region = "https://pd.na.a.pvp.net/"; }
@@ -90,8 +92,41 @@ class RA{
 		return array($file[0], $file[1]);
 	}
 
+	public function GetSeason(){
+		$riot = $this->GetRiot();
+
+		$headers = array(
+			'Authorization: Bearer '. $this->at,
+			'X-Riot-Entitlements-JWT: ' . $this->et,
+			'X-Riot-ClientPlatform: ' . $riot[0],
+			'X-Riot-ClientVersion: ' . $riot[1]
+		);
+
+		$ch = curl_init();
+		$url = "https://shared." . $this->season . ".a.pvp.net/content-service/v2/content";                           
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+		curl_setopt($ch, CURLOPT_VERBOSE, false);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		$response = curl_exec($ch);
+		curl_close($ch);
+
+		foreach (json_decode($response)->Seasons as $season) {
+			if ($season->IsActive == true){
+				$id = $season->ID;
+				break;
+			}
+		}
+
+		return $id;
+	}
+
 	public function GetCompetive(){
 		$riot = $this->GetRiot();
+		$season = $this->GetSeason();
 
 		$headers = array(
 			'Authorization: Bearer '. $this->at,
@@ -116,10 +151,15 @@ class RA{
 			return "error";
 		}
 
-		preg_match('/"CompetitiveTier":(\d+),"RankedRating"/', $response, $tier);
-		preg_match('/"RankedRating":(\d+),"WinsByTier"/', $response, $rr);
-
-		return array($tier[1], $rr[1]);
+		foreach (json_decode($response)->QueueSkills->competitive->SeasonalInfoBySeasonID as $seasons) {
+			if ($seasons->SeasonID == $season){
+				$tier = $seasons->CompetitiveTier;
+				$rr = $seasons->RankedRating;
+				break;
+			}
+		}
+		
+		return array($tier, $rr);
 	}
 
 	public function curl_req($url, $headers, $data = null, $type = false, $oh = false){

@@ -21,6 +21,11 @@ OBSなどの配信ツールに出力するウィジェットはHTML / CSSでテ�
 セキュリティ上の問題からテンプレートは常にデフォルト、もしくは[VW-template](https://github.com/nolldayo/VW-template)にて公開されているものを利用してください。  
 デフォルト及び[VW-template](https://github.com/nolldayo/VW-template)は、開発者及び開発者コミュニティにより常にセキュリティ上のチェックが行われた後に公開されています。  
 
+## 導入の前に
+以下の導入方法を行われた方で、うまく動かないという連絡を何件かいただいたのでここにトラブルシューティングを記載しておきます。  
+[PHPが導入されていないというエラーで起動出来ないとき](https://twitter.com/YNZjp/status/1429287659424215041)
+[配信が重くなってしまうとき](https://twitter.com/YNZjp/status/1429459261763907585)
+
 ## 導入方法
 現在、導入方法の動画を準備しています。  
 導入方法が分からない方は、[Twitter](https://twitter.com/YNZjp)までご連絡ください。  

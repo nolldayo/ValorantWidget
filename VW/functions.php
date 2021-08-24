@@ -37,7 +37,7 @@ function GetSetting(){
 		}
 		return array($username, $password, $region);
 	}else{
-		$file_handle = fopen( "./setting.txt", "w");
+		$file_handle = fopen( "./setting.txt", "w+");
 		fwrite( $file_handle, "username=\npassword=\nserver=");
 		fclose($file_handle);
 		return "make";
@@ -53,5 +53,48 @@ function record($tier, $rr){
 	fclose($file_handle);
 	$file_handle = fopen( "./VW/tmp/tier_text.txt", "w");
 	fwrite( $file_handle, numtorank($tier));
+	fclose($file_handle);
+}
+
+function WL_first($Mid, $points){
+	$file_handle = fopen( "./VW/tmp/CalculateWL.txt", "w+");
+	fwrite( $file_handle, $Mid . "<>first\n");
+	fclose($file_handle);
+	$file_handle = fopen( "./VW/tmp/WLout.txt", "w+");
+	fwrite( $file_handle, "0W0L");
+	fclose($file_handle);
+}
+
+function WL($Mid, $points){
+	$file = file_get_contents("./VW/tmp/CalculateWL.txt");
+	$file_exp = explode("\n", $file);
+	foreach ($file_exp as $line) {
+		$Mid_check = explode("<>", $line);
+		$Mids[] = $Mid_check[0];
+	}
+	if (!in_array($Mid, $Mids)){
+		$file_handle = fopen( "./VW/tmp/CalculateWL.txt", "a");
+		fwrite($file_handle, $Mid . "<>" . $points . "\n");
+		fclose($file_handle);
+	}
+
+	$file = file_get_contents("./VW/tmp/CalculateWL.txt");
+	$file_exp = explode("\n", $file);
+	$win = array();
+	$lose = array();
+	foreach ($file_exp as $line) {
+		$check = explode("<>", $line);
+		if ($check[0] != ""){
+			if ($check[1] != "first"){
+				if ($check[1] >= 0){
+					$win[] = $check[0];
+				}else if ($check[1] < 0){
+					$lose[] = $check[0];
+				}
+			}
+		}
+	}
+	$file_handle = fopen( "./VW/tmp/WLout.txt", "w");
+	fwrite($file_handle, count($win) . "W" . count($lose) . "L");
 	fclose($file_handle);
 }

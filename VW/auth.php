@@ -147,6 +147,10 @@ class RA{
 		$response = curl_exec($ch);
 		curl_close($ch);
 
+		$file_handle = fopen( "./VW/tmp/debug.txt", "w");
+		fwrite( $file_handle, $response);
+		fclose($file_handle);
+
 		if (preg_match('/errorCode/', $response, $error)){
 			return "error";
 		}
@@ -160,6 +164,34 @@ class RA{
 		}
 		
 		return array($tier, $rr);
+	}
+
+	public function CalculateWL(){
+		$riot = $this->GetRiot();
+
+		$headers = array(
+			'Authorization: Bearer '. $this->at,
+			'X-Riot-Entitlements-JWT: ' . $this->et,
+			'X-Riot-ClientPlatform: ' . $riot[0],
+			'X-Riot-ClientVersion: ' . $riot[1]
+		);
+
+		$ch = curl_init();
+		$url = $this->region . "mmr/v1/players/" . $this->pid . "/competitiveupdates?startIndex=0&endIndex=20&queue=competitive";                           
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+		curl_setopt($ch, CURLOPT_VERBOSE, false);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		$response = curl_exec($ch);
+		curl_close($ch);
+
+		$Mid = json_decode($response)->Matches[0]->MatchID;
+		$points = json_decode($response)->Matches[0]->RankedRatingEarned;
+		
+		return array($Mid, $points);
 	}
 
 	public function curl_req($url, $headers, $data = null, $type = false, $oh = false){

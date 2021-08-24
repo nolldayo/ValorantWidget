@@ -2,6 +2,7 @@ ValorantWidget
 ====
 "ValorantWidget" is widget shows current valorant rank and rank rating for streamers.
 ![image](https://user-images.githubusercontent.com/25396805/130334416-94e153ce-b180-4772-991f-09e3033582aa.PNG)  
+![addWL](https://user-images.githubusercontent.com/25396805/130539211-1f5688dd-45bb-47c3-8b3d-f7e6a7bbd2a2.PNG)  
 
 ## 日本語
 [\[日本語版はこちら\]](README_JP.md)
@@ -10,6 +11,11 @@ ValorantWidget
 This tool is not affiliated with Riot Officials in any way.  
 All use is at the user's own risk.  
 The developer and the development community assume no responsibility for any problems, damages, or other issues that may arise from the use of this system.  
+
+## Update Information
+|  Date  |  Description  |
+| ---- | ---- |
+|  2021.08.24  |  Add automatic W/L recording function  |
 
 ## Features
 The tool can be run only on the user's PC after downloading it.  
@@ -97,10 +103,17 @@ Check the "Refresh the browser when a scene is active" checkbox and press Done.
 ![o5](https://user-images.githubusercontent.com/25396805/130335224-75ebda04-2a38-4579-a06f-5108975c008d.PNG)  
 
 The widget has been added!  
+Automatic W/L display is described in the next section #6.  
 The displayed widget can be enlarged, reduced, or moved as long as it does not interfere with the display. You can move it to the position you prefer.  
 Initially, nothing is displayed, but if Step 3 is done correctly and "#ValorantWidget.bat" is always running, the widget will automatically display the current rank information.  
 ![o6](https://user-images.githubusercontent.com/25396805/130335265-2f3382f3-8ae2-4345-8f00-24a2838b8cbb.PNG)  
 
+**6. Set the html file for W/L display to OBS**  
+As for the W/L display, if you don't want to display it, please skip this section.  
+Add outputWL.html from the browser source in the same way as registering the html for output above.  
+Input size is **Width 150, Height 40**.  
+W/L will be initialized every time "#ValorantWidget.bat" is invoked.  
+In other words, the program will automatically record and display the W/L only during the delivery if you restart it every time you start the delivery.  
 
 Thanks for the installation.  
 From next time, please remember to **always start "#ValorantWidget.bat" when delivering.**  

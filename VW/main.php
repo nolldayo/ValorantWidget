@@ -29,6 +29,9 @@ if ($auth == "login error"){
 	exit();
 }
 
+$WL = $ra->CalculateWL();
+WL_first($WL[0], $WL[1]);
+
 echo "+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-\n";
 echo "Hello this is Valorant Widget!\n";
 echo "GLHF in your VALORANT games :)\n";
@@ -43,20 +46,23 @@ echo "Now Watching your current rank...\n\n\n";
 while (true){
 	$ra = new RA($setting[0], $setting[1], $setting[2]);
 	$auth = $ra->auth();
+
 	if ($auth == "login error"){
 		echo "The login attempt failed.\n";
 		echo "Either the user ID or password is invalid.\n";
-		exit();
-	}
+	}else{
+		$cinfo = $ra->GetCompetive();
+		if ($cinfo == "error"){
+			echo "Need to update!\n";
+			echo "Please reply me Twitter @YNZjp\n";
+			exit();
+		}
 
-	$cinfo = $ra->GetCompetive();
-	if ($cinfo == "error"){
-		echo "Need to update!\n";
-		echo "Please reply me Twitter @YNZjp\n";
-		exit();
-	}
+		record($cinfo[0], $cinfo[1]);
 
-	record($cinfo[0], $cinfo[1]);
+		$WL = $ra->CalculateWL();
+		WL($WL[0], $WL[1]);
+	}
 
 	sleep(30); //30s per check
 }

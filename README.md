@@ -12,6 +12,12 @@ This tool is not affiliated with Riot Officials in any way.
 All use is at the user's own risk.  
 The developer and the development community assume no responsibility for any problems, damages, or other issues that may arise from the use of this system.  
 
+## Development Policy
+In compliance with riot's API policy that "matchup data and other data should not be used without the consent of the user in question," we will not use this tool to collect matchup data.  
+I will not use this tool to collect data on non-users' match history or matches in progress.  
+If we receive a request from riot to stop providing the tool, the project will be deleted as soon as possible.  
+I would like to revitalize the community, and would like to see the APIs that riot currently provides to a very limited extent become widely available to general developers.  
+
 ## Update Information
 |  Date  |  Description  |
 | ---- | ---- |

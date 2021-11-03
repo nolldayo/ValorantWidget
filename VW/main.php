@@ -58,9 +58,12 @@ while (true){
 	}else{
 		$cinfo = $ra->GetCompetive();
 		if ($cinfo == "error"){
-			echo "Need to update!\n";
-			echo "Please reply me Twitter @YNZjp\n";
-			exit();
+			$cinfo_check = $ra->GetCompetive();
+			if ($cinfo_check == "error"){
+				echo "Need to update!\n";
+				echo "Please reply me Twitter @YNZjp\n";
+				exit();
+			}else{ $cinfo = $cinfo_check; }
 		}
 
 		record($cinfo[0], $cinfo[1]);

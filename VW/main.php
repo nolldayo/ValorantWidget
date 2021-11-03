@@ -43,13 +43,18 @@ echo "+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-\n\n\n";
 echo "Now Watching your current rank...\n\n\n";
 
 //main
+$ra = new RA($setting[0], $setting[1], $setting[2]);
+$auth = $ra->auth();
+
 while (true){
-	$ra = new RA($setting[0], $setting[1], $setting[2]);
-	$auth = $ra->auth();
 
 	if ($auth == "login error"){
-		echo "The login attempt failed.\n";
-		echo "Either the user ID or password is invalid.\n";
+		$auth_check = $ra->auth();
+		if ($auth_check == "login error"){
+			echo "The login attempt failed.\n";
+			echo "Either the user ID or password is invalid.\n";
+			exit;
+		}else{ $auth = $auth_check; }
 	}else{
 		$cinfo = $ra->GetCompetive();
 		if ($cinfo == "error"){

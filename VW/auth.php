@@ -103,7 +103,7 @@ class RA{
 		);
 
 		$ch = curl_init();
-		$url = "https://shared." . $this->season . ".a.pvp.net/content-service/v2/content";                           
+		$url = "https://shared." . $this->season . ".a.pvp.net/content-service/v3/content";                           
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);

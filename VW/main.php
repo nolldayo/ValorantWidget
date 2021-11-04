@@ -49,6 +49,7 @@ $auth = $ra->auth();
 while (true){
 
 	if ($auth == "login error"){
+		sleep(30);
 		$auth_check = $ra->auth();
 		if ($auth_check == "login error"){
 			echo "The login attempt failed.\n";

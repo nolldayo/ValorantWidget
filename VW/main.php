@@ -58,6 +58,7 @@ while (true){
 	}else{
 		$cinfo = $ra->GetCompetive();
 		if ($cinfo == "error"){
+			$auth = $ra->auth();
 			$cinfo_check = $ra->GetCompetive();
 			if ($cinfo_check == "error"){
 				echo "Need to update!\n";
